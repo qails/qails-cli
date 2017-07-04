@@ -3,7 +3,7 @@ import { resolve } from 'path';
 
 require('dotenv').config();
 
-const { NODE_ENV } = process.env;
+const { NODE_ENV = 'local' } = process.env;
 console.log(`[postinstall] NODE_ENV: ${NODE_ENV}`);
 
 // 只在本地开发时通过postinstall来触发dotenv的复制
