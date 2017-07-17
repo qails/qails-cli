@@ -17,7 +17,7 @@
     "start": "babel-node src/bin/qails.js",
     "dist": "node dist/bin/qails.js",
     "lint": "eslint --quiet \"**/*.js\"",
-    "release": "standard-version --first-release",
+    "release": "standard-version && npm publish",
     "prepublish": "npm run build",
     "postrelease": "git push && git push origin --tags"
   },
