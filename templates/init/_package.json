@@ -8,7 +8,7 @@
     "migrate:rollback": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:rollback",
     "migrate:latest": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:latest",
     "seed:run": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js seed:run",
-    "release": "standard-version",
+    "release": "standard-version && npm publish",
     "postinstall": "babel-node scripts/postinstall.js",
     "postrelease": "git push && git push origin --tags",
     "start": "pm2 start ecosystem.config.js",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "qails": "^1.4.1"
+    "qails": "^1.6.0"
   },
   "devDependencies": {
     "casual": "^1.5.12",
