@@ -10,6 +10,7 @@ export default class GeneratorInit extends Generator {
   constructor(appname, options) {
     super();
     this.appname = appname;
+    this.answers = {};
     this.options = Object.assign({
       skipInstall: false
     }, options);
@@ -27,32 +28,43 @@ export default class GeneratorInit extends Generator {
   }
 
   async prompting() {
+    const questions = [];
     if (!isEmptyDirectory(this.destinationRoot)) {
       console.log(chalk.yellow('The destination root is not a empty directory'));
-      await inquirer.prompt([
-        {
-          type: 'confirm',
-          name: 'overwrite',
-          message: 'Are you sure overwrite the directory?',
-          default: false
-        }
-      ]).then((answers) => {
-        if (!answers.overwrite) {
-          return Promise.reject([
-            chalk.yellow('The destination directory is not allowed to overwrite.'),
-            chalk.underline('Please change a directory and try again.')
-          ].join('\n'));
-        }
-        return Promise.resolve(true);
+      questions.push({
+        type: 'confirm',
+        name: 'overwrite',
+        message: 'Are you sure overwrite the directory?',
+        default: false
       });
     }
+    questions.push({
+      type: 'confirm',
+      name: 'mysql',
+      message: 'Do you need to use MySQL?',
+      default: true,
+      when: answers => !('overwrite' in answers) || answers.overwrite === true
+    });
+    await inquirer.prompt(questions).then((answers) => {
+      if ('overwrite' in answers && answers.overwrite === false) {
+        return Promise.reject([
+          chalk.yellow('The destination directory is not allowed to overwrite.'),
+          chalk.underline('Please change a directory and try again.')
+        ].join('\n'));
+      }
+      this.answers = answers;
+      return Promise.resolve(true);
+    });
   }
 
   writing() {
     this.fs.copyTpl(
       this.template('init'),
       this.destination(),
-      { appname: this.appname }
+      {
+        appname: this.appname,
+        ...this.answers
+      }
     );
 
     this.fs.move(

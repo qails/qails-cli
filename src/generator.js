@@ -38,7 +38,7 @@ export default class Generator extends EventEmitter {
         this.installing();
       });
     }, (reason) => {
-      console.log(`${reason}\n\nqails init cancelled.`);
+      console.log(`${reason}\n\nqails init has been cancelled.`);
     });
   }
 }
