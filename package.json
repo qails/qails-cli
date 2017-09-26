@@ -1,7 +1,6 @@
 {
   "name": "qails-cli",
   "version": "1.0.2",
-  "main": "dist/index.js",
   "license": "MIT",
   "description": "The Qails CLI for project setup",
   "repository": "qailsjs/qails-cli",
@@ -13,7 +12,7 @@
     "templates"
   ],
   "scripts": {
-    "build": "babel src -d dist",
+    "build": "rimraf dist && babel src -d dist",
     "start": "babel-node src/bin/qails.js",
     "dist": "node dist/bin/qails.js",
     "lint": "eslint --quiet \"**/*.js\"",

@@ -28,8 +28,7 @@ module.exports = {
       out_file: `${LOG_ROOT}/out.log`,
       merge_logs: true,
       log_date_format: 'YYYY-MM-DD HH:mm',
-      watch: PM2_WATCH === 'true',
-      ignore_watch: ['.git', 'node_modules', LOG_ROOT]
+      watch: PM2_WATCH === 'true' ? [DOCUMENT_ROOT] : false
     }
   ]
 };

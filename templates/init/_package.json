@@ -6,7 +6,7 @@
     "migrate:rollback": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:rollback",
     "migrate:latest": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:latest",
     "seed:run": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js seed:run",<% } %>
-    "build": "babel src -d dist",
+    "build": "rimraf dist && babel src -d dist",
     "lint": "eslint --quiet \"**/*.js\"",
     "release": "standard-version && npm publish",
     "postinstall": "babel-node scripts/postinstall.js",
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "qails": "^1.6.1"
+    "qails": "^2.0.2"
   },
   "devDependencies": {
     "casual": "^1.5.12",
