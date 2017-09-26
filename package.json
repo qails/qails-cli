@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "license": "MIT",
   "description": "The Qails CLI for project setup",
-  "repository": "qailsjs/qails-cli",
+  "repository": "qails/qails-cli",
   "bin": {
     "qails": "./dist/bin/qails.js"
   },
