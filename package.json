@@ -1,12 +1,16 @@
 {
   "name": "qails-cli",
-  "version": "1.1.3",
+  "version": "1.1.2",
   "license": "MIT",
   "description": "The Qails CLI for project setup",
   "repository": "qails/qails-cli",
   "bin": {
-    "qails": "./dist/bin/qails.js"
+    "qails": "dist/bin/qails.js"
   },
+  "files": [
+    "dist",
+    "templates"
+  ],
   "scripts": {
     "build": "rimraf dist && babel src -d dist",
     "start": "babel-node src/bin/qails.js",
