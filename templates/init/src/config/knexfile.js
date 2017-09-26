@@ -2,7 +2,7 @@
  * 该文件仅供 knex-cli 使用
  * model 中的数据库配置信息是直接从 .env 中获取
  */
-require('dotenv').config({ path: '../.env' });
+require('dotenv').config({ path: '../../.env' });
 
 const {
   KNEX_CLIENT,

@@ -1,5 +1,5 @@
+import { fetchModels, fetchModel } from 'qails';
 import Room from './model';
-import { fetchModels, fetchModel } from '../../../../src';
 
 export default {
   Query: {

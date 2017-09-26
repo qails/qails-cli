@@ -1,4 +1,4 @@
-import { Model } from '../../../../src';
+import { Model } from 'qails';
 import { model as Hotel } from '../hotel';
 
 /**

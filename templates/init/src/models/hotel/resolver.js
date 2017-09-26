@@ -1,5 +1,5 @@
+import { fetchModels, fetchModel, updateModel, deleteModel } from 'qails';
 import Hotel from './model';
-import { fetchModels, fetchModel, updateModel, deleteModel } from '../../../../src';
 
 export default {
   Query: {
