@@ -2,12 +2,13 @@
   "name": "<%=appname%>",
   "version": "0.0.0",
   "scripts": {<% if (mysql) { %>
-    "init": "yarn migrate:rollback && yarn migrate:latest && yarn seed:run",
+    "db:init": "yarn migrate:rollback && yarn migrate:latest && yarn seed:run",
+    "db:tosql": "babel-node scripts/tosql.js",
     "migrate:rollback": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:rollback",
     "migrate:latest": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:latest",
     "seed:run": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js seed:run",<% } %>
     "build": "rimraf dist && babel src -d dist",
-    "lint": "eslint --quiet \"**/*.js\"",
+    "lint": "eslint --fix --quiet \"**/*.js\"",
     "release": "standard-version && npm publish",
     "postinstall": "babel-node scripts/postinstall.js",
     "postrelease": "git push && git push origin --tags",
