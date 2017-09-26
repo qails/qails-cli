@@ -7,10 +7,6 @@
   "bin": {
     "qails": "./dist/bin/qails.js"
   },
-  "files": [
-    "dist",
-    "templates"
-  ],
   "scripts": {
     "build": "rimraf dist && babel src -d dist",
     "start": "babel-node src/bin/qails.js",
