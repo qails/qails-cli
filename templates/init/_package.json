@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "qails": "^2.0.2"
+    "qails": "^2.3.3"
   },
   "devDependencies": {
     "casual": "^1.5.12",
