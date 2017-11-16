@@ -31,14 +31,15 @@ export default class Generator extends EventEmitter {
   async run() {
     this.initializing();
     await this.prompting().then(() => {
-      console.log('\nDump files start');
+      console.log('\n正在初始化工程');
       this.writing();
       this.fs.commit(() => {
-        console.log('Write memory fs to disk ... ok');
+        console.log('工程初始化完成。');
+        console.log('正在安装依赖');
         this.installing();
       });
     }, (reason) => {
-      console.log(`${reason}\n\nqails init has been cancelled.`);
+      console.log(`${reason}\n\nqails init 被取消。`);
     });
   }
 }

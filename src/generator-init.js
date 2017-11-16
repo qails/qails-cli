@@ -4,7 +4,7 @@ import chalk from 'chalk';
 import inquirer from 'inquirer';
 import Generator from './generator';
 import { isEmptyDirectory } from './utils';
-import { yarnInstall } from './install';
+import install from './install';
 
 export default class GeneratorInit extends Generator {
   constructor(appname, options) {
@@ -18,10 +18,8 @@ export default class GeneratorInit extends Generator {
 
   initializing() {
     if (basename(this.destination()) !== this.appname) {
-      console.log([
-        `Your generator must be inside a folder named ${chalk.green(this.appname)}`,
-        'I\'ll automatically create this folder.\n'
-      ].join('\n'));
+      const appname = chalk.green(this.appname);
+      console.log(`检测到程序没有运行在\`${appname}\`目录下，程序将会自动创建\`${appname}\`目录`);
       mkdirp(this.appname);
       this.destinationRoot = this.destination(this.appname);
     }
@@ -30,27 +28,24 @@ export default class GeneratorInit extends Generator {
   async prompting() {
     const questions = [];
     if (!isEmptyDirectory(this.destinationRoot)) {
-      console.log(chalk.yellow('The destination root is not a empty directory'));
+      console.log(chalk.yellow(`检测到\`${chalk.green(this.appname)}\`不是空目录`));
       questions.push({
         type: 'confirm',
         name: 'overwrite',
-        message: 'Are you sure overwrite the directory?',
+        message: `是否覆盖 ${this.appname} ？`,
         default: false
       });
     }
     questions.push({
       type: 'confirm',
       name: 'mysql',
-      message: 'Do you need to use MySQL?',
+      message: '是否使用 MySQL ？',
       default: true,
       when: answers => !('overwrite' in answers) || answers.overwrite === true
     });
     await inquirer.prompt(questions).then((answers) => {
       if ('overwrite' in answers && answers.overwrite === false) {
-        return Promise.reject([
-          chalk.yellow('The destination directory is not allowed to overwrite.'),
-          chalk.underline('Please change a directory and try again.')
-        ].join('\n'));
+        return Promise.reject(`目录\`${this.appname}\`禁止覆盖，请更换目录重试。`);
       }
       this.answers = answers;
       return Promise.resolve(true);
@@ -121,11 +116,16 @@ export default class GeneratorInit extends Generator {
       this.destination('src/profiles/.env.local'),
       this.destination('.env')
     );
+
+    if (!this.answers.mysql) {
+      this.fs.delete(this.destination('migrations'));
+      this.fs.delete(this.destination('seeds'));
+    }
   }
 
   async installing() {
     if (!this.options.skipInstall) {
-      await yarnInstall(this.appname);
+      await install(this.appname);
     }
   }
 }

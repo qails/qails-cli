@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import program from 'commander';
 import GeneratorModel from '../generator-model';
 import pkg from '../../package.json';

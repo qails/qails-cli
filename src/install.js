@@ -1,21 +1,15 @@
+import { sync as commandExists } from 'command-exists';
 import { execSync } from 'child_process';
 import chalk from 'chalk';
 
-export const install = (installer, appname) => {
+export default (appname) => {
   process.chdir(appname);
+  const hasYarn = commandExists('yarn');
   const options = { stdio: 'inherit' };
-  const cmd = [installer === 'yarn' ? 'yarn' : 'npm install'];
+  const cmd = `${hasYarn ? 'yarn' : 'npm'} install --registry https://registry.npm.taobao.org`;
   try {
     execSync(cmd, options);
   } catch (e) {
-    console.log(
-      chalk.red('Could not finish installation. \n'),
-      `Please install ${installer} with`,
-      chalk.yellow(`npm install -g ${installer}`),
-      'and try again.'
-    );
+    console.log(chalk.red('依赖包安装失败，请运行 `npm install` 手动安装依赖包'));
   }
 };
-
-export const npmInstall = appname => install('npm', appname);
-export const yarnInstall = appname => install('yarn', appname);

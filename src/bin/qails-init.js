@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { basename } from 'path';
 import program from 'commander';
 import { prompt } from 'inquirer';
@@ -7,7 +9,7 @@ import pkg from '../../package.json';
 program
   .version(pkg.version)
   .usage('[name] [options]')
-  .option('-i, --skip-install', 'do not automatically install dependencies')
+  .option('-i, --skip-install', '跳过依赖包安装')
   .parse(process.argv);
 
 const run = (appname) => {
