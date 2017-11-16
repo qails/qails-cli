@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.8"></a>
+## [1.1.8](https://github.com/qails/qails-cli/compare/v1.1.4...v1.1.8) (2017-11-16)
+
+
+### Bug Fixes
+
+* Fix model config error ([4859e60](https://github.com/qails/qails-cli/commit/4859e60))
+* Fix some require path error ([5acce45](https://github.com/qails/qails-cli/commit/5acce45))
+* 解决 qails init 报错的bug ([876edef](https://github.com/qails/qails-cli/commit/876edef))
+
+
+
 <a name="1.1.4"></a>
 ## [1.1.4](https://github.com/qails/qails-cli/compare/v1.1.3...v1.1.4) (2017-09-26)
 
