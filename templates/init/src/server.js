@@ -5,10 +5,11 @@ import {
   bodyParserMiddleware,
   prettyJsonMiddleware,
   serveMiddleware,
-  pug
+  pug,
+  setupRoutes
 } from 'qails';
 
-const { PORT, LOG_ROOT, NODE_ENV } = process.env;
+const { PORT, LOG_ROOT, NODE_ENV, DOCUMENT_ROOT } = process.env;
 const app = new Qails([
   accessLogMiddleware({
     root: resolve(LOG_ROOT)
@@ -19,7 +20,8 @@ const app = new Qails([
   }),
   serveMiddleware()
 ]);
-pug(app, { viewPath: './templates/pages' });
+pug(app, { viewPath: resolve(DOCUMENT_ROOT, 'templates/pages') });
+setupRoutes(app);
 
 app.listen(PORT, (err) => {
   if (err) {
