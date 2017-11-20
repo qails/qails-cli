@@ -24,10 +24,4 @@ npm run start
 ```
 # 初始化一个名称为 myproject 的工程
 qails init myproject
-
-# 新建模型 user
-qails model user
-
-# 新建路由 /user
-qails route /user
 ```

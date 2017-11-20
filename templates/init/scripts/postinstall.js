@@ -14,7 +14,7 @@ console.log(`[postinstall] NODE_ENV: ${NODE_ENV}`);
 
 if (NODE_ENV === 'local') {
   const dest = resolve('.env');
-  const src = resolve(process.cwd(), `profiles/.env.${NODE_ENV}`);
+  const src = resolve(`profiles/.env.${NODE_ENV}`);
 
   console.log(`[postinstall] Copy dotenv file: ${src} ---> ${dest}`);
   writeFileSync(dest, readFileSync(src));
