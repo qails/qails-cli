@@ -4,9 +4,8 @@ import {
   accessLogMiddleware,
   bodyParserMiddleware,
   prettyJsonMiddleware,
-  serveMiddleware,
   pug,
-  setupRoutes
+  requireAllRouters
 } from 'qails';
 
 const { PORT, LOG_ROOT, NODE_ENV, DOCUMENT_ROOT } = process.env;
@@ -17,11 +16,10 @@ const app = new Qails([
   bodyParserMiddleware(/* options here */),
   prettyJsonMiddleware({
     pretty: NODE_ENV === 'local'
-  }),
-  serveMiddleware()
+  })
 ]);
 pug(app, { viewPath: './templates/pages' });
-setupRoutes(app);
+requireAllRouters(app);
 
 app.listen(PORT, (err) => {
   if (err) {
