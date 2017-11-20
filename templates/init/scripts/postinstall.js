@@ -7,7 +7,7 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { resolve } from 'path';
 
-require('dotenv').config();
+require('../dotenv');
 
 const { NODE_ENV = 'local' } = process.env;
 console.log(`[postinstall] NODE_ENV: ${NODE_ENV}`);
