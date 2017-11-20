@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('./dotenv');
 const pkg = require('./package.json');
 
 const {

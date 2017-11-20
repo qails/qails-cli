@@ -20,7 +20,7 @@ const app = new Qails([
   }),
   serveMiddleware()
 ]);
-pug(app, { viewPath: resolve(DOCUMENT_ROOT, 'templates/pages') });
+pug(app, { viewPath: './templates/pages' });
 setupRoutes(app);
 
 app.listen(PORT, (err) => {

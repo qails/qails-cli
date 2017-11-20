@@ -9,11 +9,10 @@
     "seed:run": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js seed:run",<% } %>
     "build": "rimraf dist && babel src -d dist",
     "lint": "eslint --fix --quiet \"**/*.js\"",
-    "release": "standard-version && npm publish",
     "postinstall": "babel-node scripts/postinstall.js",
-    "postrelease": "git push && git push origin --tags",
     "start": "pm2 start ecosystem.config.js",
-    "test": "mocha --recursive --compilers js:babel-core/register && yarn lint"
+    "test": "mocha",
+    "precommit": "yarn test && yarn lint"
   },
   "dependencies": {
     "axios": "^0.16.1",
@@ -32,6 +31,6 @@
     "node": ">= 7.6"
   },
   "pre-commit": [
-    "test"
+    "precommit"
   ]
 }

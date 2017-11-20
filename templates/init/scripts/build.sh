@@ -12,7 +12,7 @@ pwd
 
 ls -la
 
-cp src/profiles/.env.${NODE_ENV} .env && echo '.env copied'
+cp profiles/.env.${NODE_ENV} .env && echo '.env copied'
 
 yarn && yarn build
 
