@@ -2,7 +2,7 @@
   "name": "qails-cli",
   "version": "1.1.10",
   "license": "MIT",
-  "description": "The Qails CLI for project setup",
+  "description": "一个快速生成 qails 网站的手脚架工具",
   "repository": "qails/qails-cli",
   "bin": {
     "qails": "dist/bin/qails.js"

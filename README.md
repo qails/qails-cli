@@ -1,5 +1,5 @@
 # qails
-一个简易的类似 ruby on rails 的 node 快速开发框架
+一个快速生成 [qails](https://qails.github.io) 网站的手脚架工具。
 
 ## 安装
 
