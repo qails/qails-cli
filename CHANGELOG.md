@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/qails/qails-cli/compare/v1.1.12...v1.2.0) (2017-11-22)
+
+
+### Features
+
+* 使用node@^8.9.1并使用npm代替yarn ([afecff4](https://github.com/qails/qails-cli/commit/afecff4))
+* 使用新的配置文件架构 ([7489f06](https://github.com/qails/qails-cli/commit/7489f06))
+
+
+
 <a name="1.1.12"></a>
 ## [1.1.12](https://github.com/qails/qails-cli/compare/v1.1.11...v1.1.12) (2017-11-20)
 
