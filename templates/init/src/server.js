@@ -8,7 +8,7 @@ import {
   requireAllRouters
 } from 'qails';
 
-const { PORT, LOG_ROOT, NODE_ENV, DOCUMENT_ROOT } = process.env;
+const { PORT, LOG_ROOT, NODE_ENV } = process.env;
 const app = new Qails([
   accessLogMiddleware({
     root: resolve(LOG_ROOT)

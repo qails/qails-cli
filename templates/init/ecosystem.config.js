@@ -1,3 +1,11 @@
+/**
+ * PM2 配置文件
+ *
+ * @see http://pm2.keymetrics.io
+ *
+ * 注意：
+ * 该文件被 PM2 在命令行下直接加载，**请勿**使用 ES6 语法书写
+ */
 require('./dotenv');
 const pkg = require('./package.json');
 
@@ -11,7 +19,7 @@ const {
 } = process.env;
 
 if (!DOCUMENT_ROOT) {
-  console.log(`Not find .env at ${__dirname}`);
+  console.log('[error]DOCUMENT_ROOT is not set');
   process.exit(1);
 }
 

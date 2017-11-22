@@ -92,28 +92,8 @@ export default class GeneratorInit extends Generator {
       this.destination('.gitignore')
     );
 
-    this.fs.move(
-      this.destination('profiles/env.beta'),
-      this.destination('profiles/.env.beta')
-    );
-
-    this.fs.move(
-      this.destination('profiles/env.development'),
-      this.destination('profiles/.env.development')
-    );
-
-    this.fs.move(
-      this.destination('profiles/env.local'),
-      this.destination('profiles/.env.local')
-    );
-
-    this.fs.move(
-      this.destination('profiles/env.production'),
-      this.destination('profiles/.env.production')
-    );
-
     this.fs.copy(
-      this.destination('profiles/.env.local'),
+      this.destination('env'),
       this.destination('.env')
     );
 

@@ -34,7 +34,7 @@ export default class Generator extends EventEmitter {
       console.log('\n正在初始化工程');
       this.writing();
       this.fs.commit(() => {
-        console.log('工程初始化完成。');
+        console.log('工程初始化完成');
         console.log('正在安装依赖');
         this.installing();
       });

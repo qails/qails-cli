@@ -9,14 +9,13 @@
     "seed:run": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js seed:run",<% } %>
     "build": "rimraf dist && babel src -d dist",
     "lint": "eslint --fix --quiet \"**/*.js\"",
-    "postinstall": "babel-node scripts/postinstall.js",
     "start": "pm2 start ecosystem.config.js",
     "test": "mocha",
-    "precommit": "yarn test && yarn lint"
+    "precommit": "npm run lint && npm run test"
   },
   "dependencies": {
-    "axios": "^0.16.1",
-    "qails": "^3.0.0-alpha.2"
+    "axios": "^0.17.1",
+    "qails": "^3.0.0-alpha.3"
   },
   "devDependencies": {
     "casual": "^1.5.12",

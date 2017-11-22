@@ -14,7 +14,8 @@ pwd
 
 ls -la
 
-cp profiles/.env.${NODE_ENV} .env && echo '.env copied'
+echo NODE_ENV=${NODE_ENV} > .env
+echo '.env created.'
 
 npm install && npm run build
 

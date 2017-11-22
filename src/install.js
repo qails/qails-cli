@@ -10,6 +10,7 @@ export default (appname) => {
   try {
     execSync(cmd, options);
   } catch (e) {
-    console.log(chalk.red('依赖包安装失败，请运行 `npm install` 手动安装依赖包'));
+    console.log(chalk.red(`安装命令 \`${cmd}\` 执行失败`));
+    console.log('依赖包安装失败，请运行 `npm install` 手动安装依赖包');
   }
 };
