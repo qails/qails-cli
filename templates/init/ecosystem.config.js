@@ -6,6 +6,9 @@
  * 注意：
  * 该文件被 PM2 在命令行下直接加载，**请勿**使用 ES6 语法书写
  */
+
+/* eslint-disable */
+
 require('./dotenv');
 const pkg = require('./package.json');
 
@@ -19,7 +22,7 @@ const {
 } = process.env;
 
 if (!DOCUMENT_ROOT) {
-  console.log('[error]DOCUMENT_ROOT is not set');
+  console.log('\n[error]DOCUMENT_ROOT is not set');
   process.exit(1);
 }
 
