@@ -2,11 +2,7 @@
   "name": "<%=appname%>",
   "version": "0.0.0",
   "scripts": {<% if (mysql) { %>
-    "db:init": "yarn migrate:rollback && yarn migrate:latest && yarn seed:run",
-    "db:tosql": "babel-node scripts/tosql.js",
-    "migrate:rollback": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:rollback",
-    "migrate:latest": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js migrate:latest",
-    "seed:run": "babel-node ./node_modules/.bin/knex --knexfile=src/config/knexfile.js seed:run",<% } %>
+    "seed": "babel-node seeds/index.js",<% } %>
     "build": "rimraf dist && babel src -d dist",
     "lint": "eslint --fix --quiet \"**/*.js\"",
     "start": "pm2 start ecosystem.config.js",
