@@ -1,6 +1,6 @@
 {
   "name": "qails-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "license": "MIT",
   "description": "一个快速生成 qails 网站的手脚架工具",
   "repository": "qails/qails-cli",
