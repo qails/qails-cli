@@ -6,6 +6,13 @@
 - npm@>=3.0.0
 - pm2@>=2.0.0(全局安装)
 
+## 初始化数据库
+如果选择了 `MySQL`，需要修改 `profiles/local/mysql.env` 中的数据库信息，然后运行：
+```
+npm run seed
+```
+
+
 ## 启动工程
 ```
 npm run start
