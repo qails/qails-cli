@@ -7,7 +7,8 @@
     "lint": "eslint --fix --quiet \"**/*.js\"",
     "start": "pm2 start ecosystem.config.js",
     "test": "mocha",
-    "precommit": "npm run lint && npm run test"
+    "precommit": "npm run lint && npm run test",
+    "postinstall": "babel-node scripts/postinstall.js"
   },
   "dependencies": {
     "qails": "^3.1.0"
