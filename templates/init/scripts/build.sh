@@ -19,7 +19,7 @@ echo '[build.sh] .env created.'
 
 # 选择 node 编译类型时，jenkins 会自动安装依赖
 # 为了确保依赖包成功安装，此处再检查一下 packing 依赖包是否安装
-if [ ! -d node_modules/packing ]; then
+if [ ! -d node_modules/qails ]; then
   npm install --production --registry https://registry.npm.taobao.org
 fi
 
