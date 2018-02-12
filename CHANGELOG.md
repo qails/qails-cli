@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/qails/qails-cli/compare/v1.2.2...v1.2.3) (2018-02-12)
+
+
+### Bug Fixes
+
+* 修改包名称 ([204539d](https://github.com/qails/qails-cli/commit/204539d))
+* 在本地开发时通过postinstall来触发生成.env ([413947c](https://github.com/qails/qails-cli/commit/413947c))
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/qails/qails-cli/compare/v1.2.1...v1.2.2) (2017-12-06)
 
